@@ -1,0 +1,27 @@
+package Chats;
+import javax.swing.*;
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Clientes {
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		Ventana1 miventana=new Ventana1();
+		miventana.setVisible(true);
+		miventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+class Ventana1 extends JFrame{
+	public Ventana1(){
+		Toolkit myscreen=Toolkit.getDefaultToolkit();
+		setSize(500,300);
+		setLocation(500,300);
+		setResizable(true);
+		setTitle("Chat");
+		Image MyIcon=myscreen.getImage("src/graficos/ImageLogo.png");
+		setIconImage(MyIcon);
+	}
+}
