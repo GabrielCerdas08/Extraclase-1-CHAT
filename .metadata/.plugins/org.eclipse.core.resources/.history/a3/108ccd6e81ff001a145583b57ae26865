@@ -43,7 +43,7 @@ class Widgets extends JPanel implements Runnable{
 		JLabel text1=new JLabel("IP:");
 		add(text1);
 		
-		ip=new JTextField("127.0.0.1", 8);
+		ip=new JTextField("127.0.0.1"8);
 		add(ip);
 		
 		JLabel text3=new JLabel("Tu mensaje:");

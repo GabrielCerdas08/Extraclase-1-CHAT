@@ -1,15 +1,27 @@
 package Chats;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.DataOutputStream;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.net.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
-public class Clientes {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import Chats.Widgets.EnviarMensaje;
+
+public class Server1 {
 	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		Ventana1 miventana=new Ventana1();
@@ -43,7 +55,7 @@ class Widgets extends JPanel implements Runnable{
 		JLabel text1=new JLabel("IP:");
 		add(text1);
 		
-		ip=new JTextField("127.0.0.1", 8);
+		ip=new JTextField(8);
 		add(ip);
 		
 		JLabel text3=new JLabel("Tu mensaje:");
@@ -70,9 +82,8 @@ class Widgets extends JPanel implements Runnable{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-		
 			try {
-				Socket misocket =new Socket("127.0.0.1", 9999);
+				Socket misocket =new Socket("192.168.100.4", 9999);
 				empaquetado datos=new empaquetado();
 				datos.setNombre(nombre.getText());
 				datos.setIp(ip.getText());
@@ -143,4 +154,6 @@ class empaquetado implements Serializable{
 		this.caja1 = caja1;
 	}
 	
+}
+
 }
