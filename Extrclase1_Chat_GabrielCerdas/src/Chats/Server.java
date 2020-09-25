@@ -38,16 +38,30 @@ class Ventana2 extends JFrame implements Runnable{
 		// TODO Auto-generated method stub
 		try {
 			ServerSocket servidor=new ServerSocket(9999);
+			String nombre, ip, mensaje;
+			empaquetado paquete_recibido;
 			while(true){
 				Socket misocket=servidor.accept();
-				DataInputStream entrada_datos=new DataInputStream(misocket.getInputStream());
-				String mensaje_texto=entrada_datos.readUTF();
-				areatexto.append("\n" + mensaje_texto);
+				ObjectInputStream paquete_datos=new ObjectInputStream(misocket.getInputStream());
+				paquete_recibido =(empaquetado) paquete_datos.readObject();
+				nombre = paquete_recibido.getNombre();
+				ip = paquete_recibido.getIp();
+				mensaje = paquete_recibido.getCaja1();
+				areatexto.append("\n" + nombre + ": " + mensaje+ "  para: " + ip);
+				Socket enviaDestinatario=new Socket(ip,9090);
+				
+				ObjectOutputStream paqueteReenvio=new ObjectOutputStream(enviaDestinatario.getOutputStream());
+				
+				paqueteReenvio.writeObject(paquete_recibido);
+				paqueteReenvio.close();
+				
+				enviaDestinatario.close();
+				
 				misocket.close();
 			}
 			
 			
-		} catch (IOException e) {
+		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

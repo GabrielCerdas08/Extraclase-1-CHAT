@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\Gabriel Cerdas\workspace\EJEMPLO 2"/>
+		<item value="C:\Users\Gabriel Cerdas\eclipse-workspace"/>
+		<item value="C:\Users\Gabriel Cerdas\Documents\GitHub\Extraclase-1-CHAT\Extrclase1_Chat_GabrielCerdas"/>
+	</list>
+	<section name="org.eclipse.ui.internal.views.markers.FiltersConfigurationDialog">
+		<item value="All Errors" key="SELECTED_FILTER_GROUP"/>
+		<list key="PREV_SELECTED_ELEMENTS">
+			<item value="All Errors"/>
+		</list>
+	</section>
+</section>

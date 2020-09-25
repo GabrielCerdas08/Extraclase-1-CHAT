@@ -1,0 +1,84 @@
+package Chats;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.*;
+
+public class Clientes {
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		Ventana1 miventana=new Ventana1();
+		miventana.setVisible(true);
+		miventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+class Ventana1 extends JFrame{
+	public Ventana1(){
+		Toolkit myscreen=Toolkit.getDefaultToolkit();
+		setSize(400,500);
+		setLocation(500,300);
+		setResizable(true);
+		setTitle("Chat");
+		Widgets milamina=new Widgets();
+		add(milamina);
+		Image MyIcon=myscreen.getImage("src/Chats/ImageLogo.png");
+		setIconImage(MyIcon);
+	}
+}
+
+class Widgets extends JPanel{
+	public Widgets(){
+		JLabel text2=new JLabel("Tu nombre:");
+		add(text2);
+		
+		nombre=new JTextField(5);
+		add(nombre);
+		
+		JLabel text1=new JLabel("Tu mensaje:");
+		add(text1);
+		
+		ip=new JTextField(8);
+		add(ip);
+		
+		
+		caja1=new JTextField("",20);
+		add(caja1);
+		
+		areachat=new JTextArea(12, 20);
+		add(areachat);
+		
+				
+		
+		JButton miboton1=new JButton("Enviar");
+		EnviarMensaje evento=new EnviarMensaje();
+		miboton1.addActionListener(evento);
+		add(miboton1);
+	}
+	private class EnviarMensaje implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			//System.out.println("hELLO");
+			try {
+				Socket misocket =new Socket("192.168.100.4", 9999);
+				DataOutputStream salida_datos=new DataOutputStream(misocket.getOutputStream());
+				salida_datos.writeUTF(caja1.getText());
+				salida_datos.close();
+			} catch (UnknownHostException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println(e1.getMessage());
+			}
+			
+		}
+	}
+	private JTextField caja1, nombre,ip;
+	private JTextArea areachat;
+	
+}
