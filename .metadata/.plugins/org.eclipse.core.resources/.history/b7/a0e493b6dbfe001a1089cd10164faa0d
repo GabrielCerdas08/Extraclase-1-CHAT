@@ -2,8 +2,6 @@ package Chats;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.net.*;
 
 public class Clientes {
 	public static void main(String[] args){
@@ -46,16 +44,7 @@ class Widgets extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			//System.out.println("hELLO");
-			try {
-				Socket misocket =new Socket("192.168.100.4", 250);
-			} catch (UnknownHostException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				System.out.println(e1.getMessage());
-			}
+			System.out.println("hELLO");
 			
 		}
 	}
