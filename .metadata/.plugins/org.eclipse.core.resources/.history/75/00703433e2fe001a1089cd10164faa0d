@@ -34,8 +34,8 @@ class Widgets extends JPanel{
 		JLabel text1=new JLabel("Tu mensaje:");
 		add(text1);
 		
-		caja1=new JTextField("",30);
-		add(caja1);
+		JTextField campo1=new JTextField("",30);
+		add(campo1);
 		
 		JButton miboton1=new JButton("Enviar");
 		EnviarMensaje evento=new EnviarMensaje();
@@ -49,9 +49,9 @@ class Widgets extends JPanel{
 			// TODO Auto-generated method stub
 			//System.out.println("hELLO");
 			try {
-				Socket misocket =new Socket("192.168.100.4", 9999);
+				Socket misocket =new Socket("192.168.100.4", 250);
 				DataOutputStream salida_datos=new DataOutputStream(misocket.getOutputStream());
-				salida_datos.writeUTF(caja1.getText());
+				salida_datos.writeUTF(campo1.getText());
 				salida_datos.close();
 			} catch (UnknownHostException e1) {
 				// TODO Auto-generated catch block
@@ -63,5 +63,5 @@ class Widgets extends JPanel{
 			
 		}
 	}
-	private JTextField caja1;
+	private JTextField campo1;
 }

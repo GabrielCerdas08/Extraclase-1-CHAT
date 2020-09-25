@@ -20,7 +20,7 @@ class Ventana2 extends JFrame implements Runnable{
 		setLocation(500,300);
 		JPanel miwidget=new JPanel();
 		miwidget.setLayout(new BorderLayout());
-		areatexto = new JTextArea();
+		JTextArea areatexto = new JTextArea();
 		miwidget.add(areatexto, BorderLayout.CENTER);
 		add(miwidget);
 		setTitle("Chat.Server");
@@ -37,15 +37,10 @@ class Ventana2 extends JFrame implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
-			ServerSocket servidor=new ServerSocket(9999);
-			while(true){
-				Socket misocket=servidor.accept();
-				DataInputStream entrada_datos=new DataInputStream(misocket.getInputStream());
-				String mensaje_texto=entrada_datos.readUTF();
-				areatexto.append("\n" + mensaje_texto);
-				misocket.close();
-			}
-			
+			ServerSocket servidor=new ServerSocket(250);
+			Socket misocket=servidor.accept();
+			DataInputStream entrada_datos=new DataInputStream(misocket.getInputStream());
+			String mensaje=entrada_datos.readUTF();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

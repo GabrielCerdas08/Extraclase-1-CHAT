@@ -1,0 +1,26 @@
+package Chats;
+import javax.swing.*;
+import java.awt.*;
+
+public class Server {
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		Ventana1 miventana=new Ventana1();
+		miventana.setVisible(true);
+		miventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+class Ventana2 extends JFrame{
+	public Ventana2(){
+		Toolkit myscreen=Toolkit.getDefaultToolkit();
+		setSize(500,300);
+		setLocation(500,300);
+		setResizable(true);
+		setTitle("Chat");
+		
+		Image MyIcon=myscreen.getImage("src/Chats/ImageLogo.png");
+		setIconImage(MyIcon);
+	}
+
+}
