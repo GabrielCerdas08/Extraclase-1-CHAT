@@ -17,7 +17,7 @@ public class Clientes {
 		miventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
-
+#holaaa#
 class Ventana1 extends JFrame{
 	public Ventana1(){
 		Toolkit myscreen=Toolkit.getDefaultToolkit();
